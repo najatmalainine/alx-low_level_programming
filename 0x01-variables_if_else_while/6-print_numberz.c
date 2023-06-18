@@ -11,7 +11,7 @@ int main(void)
 {
 	int digit;
 
-	while (digit < 9)
+	while (digit <= 9)
 	{
 		putchar(digit + 48);
 		digit++;
