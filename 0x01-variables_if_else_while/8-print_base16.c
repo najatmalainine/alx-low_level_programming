@@ -14,10 +14,10 @@ int main(void)
 
 	while (n <= 9)
 	{
-		putchar(digit + 48);
-		a++;
+		putchar(n + 48);
+		n++;
 	}
-	while (ch <= 'z')
+	while (ch <= 'f')
 	{
 		putchar(ch);
 		ch++;
