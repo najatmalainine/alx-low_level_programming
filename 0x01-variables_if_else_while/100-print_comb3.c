@@ -19,14 +19,15 @@ int main(void)
 			{
 				putchar(i + 48);
 				putchar(j + 48);
-				putchar(' ');
 				if (i != 8)
 				{
 				putchar(',');
+				putchar(' ');
 				}
 			}
 		}
 	}
+	putchar('\n')
 
 	return (0);
 
