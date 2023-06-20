@@ -1,5 +1,5 @@
-#ifndef _HOLBERTON_H_
-#define _HOLBERTON_H_
+#ifndef MAIN_H
+#define MAIN_H
 
 /**
  * _putchar - writes the character c to stdout
@@ -12,7 +12,7 @@
 int _putchar(char c);
 
 /**
- * void print_alphabet(void): prints the alphabet, in lowercase
+ * void print_alphabet: prints the alphabet, in lowercase
  */
 
 void print_alphabet(void);
