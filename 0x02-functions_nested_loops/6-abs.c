@@ -2,7 +2,7 @@
 
 /**
  * _abs - checks number
- * @int: number to check
+ * @n: number to check
  * Return: n if positive, -n if negative, 0 otherwise
  */
 
