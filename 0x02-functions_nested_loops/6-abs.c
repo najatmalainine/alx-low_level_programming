@@ -6,9 +6,9 @@
  * Return: n if positive, -n if negative, 0 otherwise
  */
 
-int _abs(int)
+int _abs(int n)
 {
-	int n, m;
+	int n;
 
 	if (n > 0)
 	{
