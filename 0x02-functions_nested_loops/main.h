@@ -72,6 +72,6 @@ int _abs(int);
 
 
 
-print_last_digit(int n);
+int print_last_digit(int);
 
 #endif
