@@ -93,4 +93,12 @@ void jack_bauer(void);
 void times_table(void);
 
 
+/**
+ * int add(int, int) - adds two digits
+ * Returns: 0
+ */
+
+int add(int, int);
+
+
 #endif
