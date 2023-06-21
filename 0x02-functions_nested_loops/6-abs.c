@@ -12,15 +12,14 @@ int _abs(int)
 
 	if (n > 0)
 	{
-		printf("%d\n", n);
+		return (n);
 	}
 	else if (n < 0)
 	{
-		m = -n;
-		printf("%d\n", m);
+		return (-n);
 	}
 	else
 	{
-		printf("%d\n", 0);
+		return (0);
 	}
 }
