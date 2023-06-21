@@ -14,7 +14,8 @@
 int _putchar(char c);
 
 /**
- * print_alphabet: prints the alphabet, in lowercase
+ * print_alphabet(void): prints the alphabet, in lowercase
+ * Return: nothing
  */
 
 void print_alphabet(void);
@@ -63,5 +64,14 @@ int print_sign(int n);
 
 int _abs(int);
 
+
+/**
+ * print_last_digit(int) - prints the last digit
+ * Returns the last digit
+ */
+
+
+
+print_last_digit(int);
 
 #endif
