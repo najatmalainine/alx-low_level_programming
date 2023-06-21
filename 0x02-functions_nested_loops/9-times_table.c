@@ -18,8 +18,8 @@ void times_table(void)
 			printf("%d", z);
 			if (j != 9)
 			{
-			_putchar(',');
-			_putchar(' ');
+				_putchar(',');
+				_putchar(' ');
 			}
 
 		}
