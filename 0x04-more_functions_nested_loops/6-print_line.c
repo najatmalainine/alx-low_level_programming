@@ -16,11 +16,11 @@ void print_line(int n)
 		for (j = 1; j <= n; j++)
 		{
 
-			putchar('_');
+			_putchar('_');
 
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 	else
-		putchar('\n');
+		_putchar('\n');
 }
