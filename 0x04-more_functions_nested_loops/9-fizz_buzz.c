@@ -28,8 +28,12 @@ int main(void)
 		}
 		else
 			printf("%d ", i);
+		if (num != 100)
+			printf(" ");
+		else
+			printf("\n");
 	}
 
-	printf("\n");
+
 	return (0);
 }
