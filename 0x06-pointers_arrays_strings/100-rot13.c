@@ -6,7 +6,7 @@
  * Return: encoded string
  */
 
-void *rot13(char *str)
+char *rot13(char *str)
 {
 	int i = 0;
 
