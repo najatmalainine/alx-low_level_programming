@@ -8,7 +8,7 @@
 
 int _is_prime_helper(int n, int i)
 {
-	if (n < 0)
+	if (n < 22
 		return (0);
 	if (n % i == 0)
 		return (0);
