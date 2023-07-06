@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * is_prime_number - check if prime
- * @n: number to check
- * Return: 1 if prime, 0 if not
+ * _is_prime_helper - recursively divide by higher divisor, skip even nums
+ * @n: number to check if prime
+ * @i: divisor
+ * Return: 1 if prime, 0 if not, or recursive function call
  */
 
 int _is_prime_helper(int n, int i)
@@ -16,6 +17,13 @@ int _is_prime_helper(int n, int i)
 		return (1);
 	return (_is_prime_helper(n, i + 1));
 }
+
+
+/**
+ * is_prime_number - check if prime
+ * @n: number to check
+ * Return: 1 if prime, 0 if not
+ */
 
 int is_prime_number(int n)
 {
