@@ -4,6 +4,7 @@
 
 /**
  * is_pali_helper - compare head and tail indices for match
+ * @s: string to check
  * @i: index starting from left of string
  * @j: index starting from right of string, moving backwards
  * Return: 1 if palindrome, 0 if not
