@@ -19,7 +19,7 @@ char *_strdup(char *str)
 	if (str == NULL) /* validate str input */
 		return (NULL);
 
-	while (str[len] != '0')
+	while (str[len] != '\0')
 	{
 		len++;
 	}
