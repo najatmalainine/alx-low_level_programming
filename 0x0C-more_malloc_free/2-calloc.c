@@ -15,7 +15,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	unsigned int i;
 	void *ptr;
-	unsigned char *ptr2
+
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
@@ -24,12 +24,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (ptr == NULL)
 		return (NULL);
-	/* cast ptr */
-	*ptr2 = (unsigned char *)ptr;
+
 
 	for (i = 0; i < nmemb * size; i++)
 	{
-		ptr2[i] = 0;
+		*((char *)ptr + i) = 0; /* type cast assigning values*/
 	}
 
 	return (ptr);
