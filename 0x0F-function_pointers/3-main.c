@@ -15,33 +15,29 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
-	int (*f)(int, int);
+	int (*op_f)(int, int);
+
 
 	/* validate input */
 	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+		printf("Error\n"), exit(98);
+
 
 	/* convert user input to ints and point to correct operator function */
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	f = get_op_func(argv[2]);
 
-	if (f == NULL || (argv[2][1] != '\0'))
-	{
-		printf("Error\n");
-		exit(99);
-	}
+	op_f = get_op_func(argv[2]);
+
+	if (!op_f)
+		printf("Error\n"), exit(99);
+
 
 	if (!b && (argv[2][0] == '/' || argv[2][0] == '%'))
-	{
-		printf("Error\n");
-		exit(100);
-	}
+		printf("Error\n"), exit(100);
 
-	printf("%d\n", f(a, b)); /* calculate via function ptr */
+
+	printf("%d\n", op_f(a, b)); /* calculate via function ptr */
 
 	return (0);
 }
