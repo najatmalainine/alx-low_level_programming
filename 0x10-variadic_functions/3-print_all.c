@@ -10,7 +10,7 @@
 
 void print_char(char *separator, va_list args)
 {
-	printf("%s%c", separator, va_arg(args, char));
+	printf("%s%c", separator, va_arg(args, int));
 }
 
 /**
@@ -43,18 +43,18 @@ void print_float(char *separator, va_list args)
 
 void print_str(char *separator, va_list args)
 {
-	const char *str;
+	char *str;
 
-	str = va_arg(args, const char*);
+	str = va_arg(args, char*);
 
 	if (str == NULL)
-		printf("(nil)");
-	else
-		printf("%s", str);
-	if (separator != NULL)
 	{
-		printf("%s", separator);
+		printf("(nil)");
+		return;
 	}
+	else
+		printf("%s%s", separator, str);
+
 }
 
 /**
@@ -65,12 +65,8 @@ void print_str(char *separator, va_list args)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	const char *separator;
+	char *separator;
 	int i, j;
-
-	separator = "";
-	i = 0;
-	j = 0;
 
 	datatype d[] = {
 		{"c", print_char},
@@ -80,19 +76,22 @@ void print_all(const char * const format, ...)
 		{NULL, NULL}
 	};
 
+	separator = "";
+	i = 0;
+	j = 0;
 
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	while (format && format[i])
 	{
-		for (j = 0; d[j].specifier != NULL; j++)
+		while (d[j].specifier)
 		{
 			if (format[i] == d[j].specifier[0])
 			{
-				d[i].print_f(separator, args);
+				d[i].print_func(separator, args);
 				separator = ", ";
-				break;
 			}
+			j++;
 
 		}
 		i++;
