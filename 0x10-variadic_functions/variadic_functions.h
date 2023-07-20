@@ -11,13 +11,13 @@ void print_all(const char * const format, ...);
 
 /**
  * struct dt - struct
- * @letter: letter signifying data type
- * @func: function ptr
+ * @specifier: letter signifying data type
+ * @print_func: function ptr
  */
 typedef struct dt
 {
-    char* specifier;
-    void (*print_func)(char*, va_list);
+	char *specifier;
+	void (*print_func)(char*, va_list);
 } datatype;
 
 #endif

@@ -45,7 +45,7 @@ void print_str(char *separator, va_list args)
 {
 	char *str;
 
-	str = va_arg(args, char*);
+	str = va_arg(args, char *);
 
 	if (str == NULL)
 	{
@@ -65,8 +65,8 @@ void print_str(char *separator, va_list args)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char *separator;
-	int i, j;
+	char *separator = "";
+	int i = 0, j;
 
 	datatype d[] = {
 		{"c", print_char},
@@ -76,19 +76,18 @@ void print_all(const char * const format, ...)
 		{NULL, NULL}
 	};
 
-	separator = "";
-	i = 0;
-	j = 0;
+
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
+		j = 0;
 		while (d[j].specifier)
 		{
 			if (format[i] == d[j].specifier[0])
 			{
-				d[i].print_func(separator, args);
+				d[j].print_func(separator, args);
 				separator = ", ";
 			}
 			j++;
