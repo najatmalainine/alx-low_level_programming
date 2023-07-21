@@ -43,18 +43,12 @@ void print_float(char *separator, va_list args)
 
 void print_str(char *separator, va_list args)
 {
-	char *str;
-
-	str = va_arg(args, char *);
+	char *str = va_arg(args, char *);
 
 	if (str == NULL)
-	{
 		printf("(nil)");
-		return;
-	}
-	else
-		printf("%s%s", separator, str);
 
+	printf("%s%s", separator, str);
 }
 
 /**
@@ -75,7 +69,6 @@ void print_all(const char * const format, ...)
 		{"s", print_str},
 		{NULL, NULL}
 	};
-
 
 
 	va_start(args, format);
