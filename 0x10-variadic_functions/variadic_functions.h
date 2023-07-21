@@ -17,7 +17,7 @@ void print_all(const char * const format, ...);
 typedef struct dt
 {
 	char specifier;
-	void (*func)(va_list);
+	void (*func)(char *, va_list);
 } datatype;
 
 #endif

@@ -4,82 +4,99 @@
 
 /**
  * print_char - prints char
- * @valist: valist
+ * @args: argument pointer
+ * @separator: the string separator
  */
-void print_char(va_list valist)
+
+void print_char(char *separator, va_list args)
 {
-	printf("%c", va_arg(valist, int));
+	printf("%s%c", separator, va_arg(args, int));
 }
 
 /**
  * print_int - prints int
- * @valist: valist
+ * @args: argument pointer
+ * @separator: the string separator
  */
-void print_int(va_list valist)
+
+void print_int(char *separator, va_list args)
 {
-	printf("%d", va_arg(valist, int));
+	printf("%s%d", separator, va_arg(args, int));
 }
 
 /**
  * print_float - prints float
- * @valist: valist
+ * @args: argument pointer
+ * @separator: the string separator
  */
-void print_float(va_list valist)
+
+void print_float(char *separator, va_list args)
 {
-	printf("%f", va_arg(valist, double));
+	printf("%s%f", separator, va_arg(args, double));
 }
 
 /**
- * print_string - prints string
- * @valist: valist
+ * print_str - prints string
+ * @args: argument pointer
+ * @separator: the string separator
  */
-void print_string(va_list valist)
+
+void print_str(char *separator, va_list args)
 {
-	char *s;
+	char *str;
 
-	s = va_arg(valist, char *);
+	str = va_arg(args, char *);
 
-	if (s == NULL)
+	if (str == NULL)
 	{
 		printf("(nil)");
 		return;
 	}
-	printf("%s", s);
+	else
+		printf("%s%s", separator, str);
+
 }
 
 /**
  * print_all - print varying input of ints, chars, floats, and strings
  * @format: an array of chars signifying which data type to print
  */
+
 void print_all(const char * const format, ...)
 {
+	va_list args;
 	char *separator = "";
-	int i, j = 0;
-	va_list valist;
+	int i = 0, j;
 
-	datatype choice[] = { {'c', print_char},
-			      {'i', print_int},
-			      {'f', print_float},
-			      {'s', print_string},
-			      {'\0', NULL} };
+	datatype d[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_str},
+		{NULL, NULL}
+	};
 
-	/* iterate format; if datatype matched, access function via struct */
-	va_start(valist, format);
-	while (format != NULL && format[j] != '\0')
+
+
+	va_start(args, format);
+
+	while (format && format[i])
 	{
-		i = 0;
-		while (choice[i].specifier != '\0')
+		j = 0;
+		while (d[j].specifier)
 		{
-			if (choice[i].specifier == format[j])
+			if (format[i] == d[j].specifier[0])
 			{
-				printf("%s", separator);
-				choice[i].func(valist); /*access va_arg later*/
+				d[j].func(separator, args);
 				separator = ", ";
 			}
-			i++;
+			j++;
+
 		}
-		j++;
+		i++;
+
 	}
-	va_end(valist);
 	printf("\n");
+	va_end(args);
+
 }
