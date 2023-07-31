@@ -15,7 +15,7 @@ void free_listint(listint_t *head)
 		listint_t *tmp = head; /* Store the current node in a temporary variable */
 
 		head = head->next; /* Move to the next node before freeing the current one */
-		free(tmp->n); /* Free the duplicated int in the current node */
+		/*free(tmp->n);  Free the duplicated int in the current node */
 		free(tmp); /* Free the current node itself */
 	}
 }
