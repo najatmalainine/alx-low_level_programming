@@ -18,6 +18,13 @@ int _strlen(char *s)
 	return (count);
 }
 
+/**
+ * append_text_to_file - append text and only if file exists
+ * @filename: file
+ * @text_content: appends this content into file
+ * Return: 1 on success, -1 on error
+ */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd;
