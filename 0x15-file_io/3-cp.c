@@ -44,13 +44,15 @@ int cp_file(const char *src, const char *dest)
  */
 int main(int argc, char *argv[])
 {
+	int result;
+
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
 		return (97);
 	}
 
-	int result = cp_file(argv[1], argv[2]);
+	result = cp_file(argv[1], argv[2]);
 
 	if (result != 0)
 	{
