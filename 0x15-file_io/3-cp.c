@@ -1,6 +1,7 @@
 #include "main.h"
 #include <fcntl.h>
 
+#define USAGE "Usage: cp file_from file_to\n"
 /**
  * main - copies one file to another
  * @argc: should be 3 (./a.out copyfromfile copytofile)
@@ -11,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, readbytes, writebytes;
-	char buffer[1024];
+	char *buffer[1024];
 
 	if (argc != 3)
 	{
@@ -30,17 +31,17 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while ((readbytes = read(file_from, buffer, sizeof(buffer))) > 0)
+	while ((readbytes = read(file_from, buffer, 1024)) != 0)
 	{
 		if (readbytes == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %d\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
 		writebytes = write(file_to, buffer, readbytes);
 		if (writebytes == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %d\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
@@ -59,5 +60,5 @@ int main(int argc, char *argv[])
 	else
 		close(file_to);
 
-	exit(0);
+	return (0);
 }
