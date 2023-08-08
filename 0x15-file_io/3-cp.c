@@ -1,7 +1,6 @@
 #include "main.h"
 #include <fcntl.h>
 
-#define USAGE "Usage: cp file_from file_to\n"
 /**
  * main - copies one file to another
  * @argc: should be 3 (./a.out copyfromfile copytofile)
