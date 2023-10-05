@@ -6,7 +6,7 @@
  * @value: value
  * Return: the new node, NULL if fail
  */
-int create_node(const char *key, const char *value)
+hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *new_node;
 
@@ -42,7 +42,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *new_node, *current;
-	char *new_value;
 
 	if (!ht || !ht->array || ht->size == 0 || !key || !value || strlen(key) == 0)
 		return (0);
